@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Event Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div class="main-container">
+        <h1> Smart Event Dashboard</h1>
+        
+        <div class="dashboard-grid">
+            <section class="dashboard-card add-event">
+                <h2>Add New Event</h2>
+                <form id="eventForm">
+                    <div class="input-group">
+                        <label>Event Title</label>
+                        <input type="text" id="eventTitle" placeholder="e.g. Late Night Fragging" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Event Date</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Category</label>
+                        <select id="eventCategory" required>
+                            <option value="Conference">Conference</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Meetup">Meetup</option>
+                            <option value="Webinar">Webinar</option>
+                            <option value="Social">Social</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Description</label>
+                        <textarea id="eventDescription" placeholder="Enter details..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="glow-btn">Add Event</button>
+                </form>
+            </section>
+
+            <section class="dashboard-card my-events">
+                <div class="header-row">
+                    <h2>My Events</h2>
+                    <div class="action-buttons">
+                        <button id="addSampleBtn" class="secondary-btn">Add Sample</button>
+                        <button id="clearAllBtn" class="danger-btn">Clear All</button>
+                    </div>
+                </div>
+
+                <div id="eventContainer">
+                    <div class="empty-state">No events yet.</div>
+                </div>
+            </section>
+
+            <section class="dashboard-card dom-demo">
+                <h2>DOM Manipulation Demo</h2>
+                <div id="demoContent">
+                    <span class="pulse-text">Press any key to see the difference!</span>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/* --- RGB Gaming Theme Variables --- */
+:root {
+    --bg-dark: #0a0b10;
+    --card-bg: #13151b;
+    --text-main: #e0e6ed;
+    --text-muted: #94a3b8;
+    
+    /* Neon Accents */
+    --neon-purple: #b026ff;
+    --neon-blue: #00d4ff;
+    --neon-green: #00ff9d;
+    --neon-red: #ff3860;
+    
+    /* Gradients */
+    --rgb-gradient: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: var(--rgb-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(176, 38, 255, 0.3);
+}
+
+h2 {
+    color: var(--neon-blue);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+/* --- Layout Grid (Responsive) --- */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-grid {
+    display: grid;
+    gap: 20px;
+    /* Desktop: 1/3 width for form, 2/3 for events */
+    grid-template-columns: 1fr 2fr; 
+    grid-template-areas: 
+        "form list"
+        "demo demo";
+}
+
+/* Assign Grid Areas */
+.add-event { grid-area: form; }
+.my-events { grid-area: list; }
+.dom-demo  { grid-area: demo; }
+
+/* Mobile View: Stack everything */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "form"
+            "list"
+            "demo";
+    }
+}
+
+/* --- Card Styling --- */
+.dashboard-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* The RGB Border Top Effect */
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--rgb-gradient);
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* --- Form Styles --- */
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    background: #050608;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* --- Buttons --- */
+button {
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.glow-btn {
+    width: 100%;
+    background: var(--rgb-gradient);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.glow-btn:hover {
+    filter: brightness(1.8);
+    box-shadow: 0 0 15px rgba(176, 38, 255, 0.5);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.secondary-btn:hover {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.danger-btn {
+    background: transparent;
+    border: 1px solid var(--neon-red);
+    color: var(--neon-red);
+}
+
+.danger-btn:hover {
+    background: rgba(255, 56, 96, 0.1);
+}
+
+/* --- Event List Section --- */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-row h2 {
+    margin-bottom: 0;
+    border: none;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    border: 2px dashed #333;
+    border-radius: 8px;
+}
+
+/* --- DOM Demo Section --- */
+#demoContent {
+    background: #000;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    color: var(--neon-green);
+    border-left: 4px solid var(--neon-green);
+}
