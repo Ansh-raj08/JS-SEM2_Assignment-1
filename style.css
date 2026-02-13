@@ -113,6 +113,40 @@ label {
     margin-bottom: 5px;
 }
 
+/* --- Custom Date Picker Styling --- */
+
+input[type="date"] {
+    /* 1. Forces the popup calendar to use Dark Mode (Chrome/Edge/Firefox) */
+    color-scheme: dark; 
+    
+    /* 2. Make sure text aligns nicely */
+    text-align: left;
+    position: relative;
+    cursor: text;
+}
+
+/* 3. Target the Calendar Icon inside the input */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    
+    /* 4. The Magic: Invert color to white and add Neon Blue Glow */
+    filter: invert(1) drop-shadow(0 0 5px var(--neon-blue));
+    
+    /* 5. Move the icon to the right side nicely */
+    background-position: center right 10px;
+    background-repeat: no-repeat;
+    background-size: 20px; 
+}
+
 input, select, textarea {
     width: 100%;
     padding: 12px;
